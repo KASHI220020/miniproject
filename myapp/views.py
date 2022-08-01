@@ -64,8 +64,7 @@ def bookings(request):
                                            dest=dest_r, price=price_r, nos=seats_r, date=date_r, time=time_r,
                                            status='BOOKED')
                 print('------------book id-----------', book.id)
-                # book.save()
-                breakpoint()
+         
                 return render(request, 'myapp/payment.html', locals())
             else:
                 context["error"] = "Sorry select fewer number of seats"
