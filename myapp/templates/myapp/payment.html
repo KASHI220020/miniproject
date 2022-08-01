@@ -74,8 +74,8 @@
 		
 		<div class="right">
 			<h3>PAYMENT</h3>
-			<form>
-				Amount to paid  <span>100$</span><br><br>
+			<form action="{% url 'bookings' %}">
+				Amount to paid  <span>{{cost}}</span><br><br>
 				Accepted Card <br>
 				<img src="{% static 'mysite/images/card1.png' %}" alt="" srcset="" height="100px" width="400px">
 				<br><br>
@@ -102,7 +102,10 @@
 					</label>
 				</div>
 			</form>
-			<input type="submit" name="" value="Proceed to Checkout">
+			<a href="/confirmation?busid={{bus.id}}&bookid={{book.id}}&cost={{cost}}">
+				
+				<input type="submit" name="" value="Proceed to Checkout">
+			</a>
 		</div>
 	</div>
 	{% endblock content %}

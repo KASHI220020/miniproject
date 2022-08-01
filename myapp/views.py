@@ -65,8 +65,8 @@ def bookings(request):
                                            status='BOOKED')
                 print('------------book id-----------', book.id)
                 # book.save()
-                
-                return render(request, 'myapp/bookings.html', locals())
+                breakpoint()
+                return render(request, 'myapp/payment.html', locals())
             else:
                 context["error"] = "Sorry select fewer number of seats"
                 return render(request, 'myapp/findbus.html', context)
@@ -163,3 +163,13 @@ def success(request):
 
 def payment(request):
     return render(request,'myapp/payment.html')
+
+def confirmation(request):
+ 
+    busid = request.GET.get('busid', '')
+    bookid = request.GET.get('bookid', '')
+    cost = request.GET.get('cost')
+    bus = Bus.objects.get(id=busid)
+    # breakpoint()
+    book = Book.objects.get(id=bookid)
+    return render(request, 'myapp/bookings.html', locals())

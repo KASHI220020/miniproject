@@ -12,5 +12,6 @@ urlpatterns = [
     path('success', views.success, name="success"),
     path('signout', views.signout, name="signout"),
     path('payment', views.payment, name="payment"),
+    path('confirmation/', views.confirmation, name="confirmation")
 
 ]
